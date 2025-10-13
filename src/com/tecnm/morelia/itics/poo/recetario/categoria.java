@@ -3,10 +3,13 @@ package com.tecnm.morelia.itics.poo.recetario;
 public class categoria {
     private String nombre;
     private String descripcion;
-    private String receta;
-    public categoria(String nombre, String descripcion, String receta) {
+    public categoria(String nombre, String descripcion) {
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.receta = receta;
+
+    }
+    public void agregarCategoria(){
+        System.out.println("Agrega nueva categoria"+this.nombre);
+        System.out.println("Agrega su descripcion"+this.nombre);
     }
 }

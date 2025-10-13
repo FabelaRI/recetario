@@ -7,5 +7,10 @@ public class ingrediente {
         this.nombre = nombre;
         this.cantidad = cantidad;
     }
+    public void agregarIngrediente(){
+        System.out.println("Agrega nuevo ingrediente"+this.nombre);
+        System.out.println("Agrega su cantidad"+this.cantidad);
+
+    }
 
 }
