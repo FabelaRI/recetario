@@ -1,15 +1,26 @@
 package com.tecnm.morelia.itics.poo.recetario;
 
-public class categoria {
-    private String nombre;
+public class categoria implements Informacion{
+    private String[] nombre;
+    private String categoria;
     private String descripcion;
-    public categoria(String nombre, String descripcion) {
-        this.nombre = nombre;
+    private int tamanio;
+    public categoria( String descripcion, String categoria) {
+        nombre = new String[tamanio];
         this.descripcion = descripcion;
+        this.categoria = categoria;
 
     }
-    public void agregarCategoria(){
-        System.out.println("Agrega nueva categoria"+this.nombre);
-        System.out.println("Agrega su descripcion"+this.nombre);
+    @Override
+    public void mostrarInformacion() {
+
+    }
+
+    @Override
+    public void modificarInformacion() {
+
+    }
+    public void agregarRecetas(){
+
     }
 }
