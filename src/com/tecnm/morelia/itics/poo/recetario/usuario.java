@@ -2,14 +2,11 @@ package com.tecnm.morelia.itics.poo.recetario;
 import java.util.Scanner;
 
 public class usuario implements Informacion{
-    private String[] usuariosRegistrados ={"Angel","Blanca","Carlos"};
-    private String[] idRegistrados={"1234","2565","1678"};
-    int tamanio = usuariosRegistrados.length;
-    private int id;
+    private String id;
     private String nombre;
     private String descripcion;
     private String ubicacion;
-    public usuario(String nombre, String descripcion, String ubicacion, int id) {
+    public usuario(String nombre, String descripcion, String ubicacion, String id) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.ubicacion = ubicacion;
@@ -17,82 +14,77 @@ public class usuario implements Informacion{
 
 
     }
-    public void accederUsuario() {
+    public boolean accederUsuario(String nombre, String id) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Introduce tu nombre de usuario:");
-        String nombre = sc.nextLine();
-        System.out.println("introduce su ID:");
-        String id = sc.nextLine();
-        for(int i=0;i<tamanio;i++){
-            if(usuariosRegistrados[i].equals(nombre)){
-                System.out.println("es valido ese usuario");
-                if(idRegistrados[i].equals(id)){
-                    System.out.println("Es correcto ese ID");
-                    int validacion = 1;
-                } else{
-                    System.out.println("No es correcto ese ID");
-                    System.out.println("vuelve a intentarlo");
-                    }
-                break;
+        while(true){
+            if(nombre.equals(this.nombre)){
+                if(id.equals(this.id)){
+                    return true;
+                }else{
+                    System.out.println("NO ES VALIDO ESE ID");
+                    break;
+                }
             }else{
-                System.out.println("No es correcto ese usuario");
-                System.out.println("Vuelve a intentarlo");
+                System.out.println("NO ES VALIDO ESE NOMBRE");
                 break;
             }
         }
-
+        return false;
     }
 
-    public void crearUsuario() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Introduce tu nombre de usuario:");
-        String nombre = sc.nextLine();
-        System.out.println("introduce su ID:");
-        String id = sc.nextLine();
-        System.out.println("introduce una descripcion:");
-        String descripcion = sc.nextLine();
-        System.out.println("introduce una ubicacion:");
-        String ubicacion = sc.nextLine();
+    public void crearUsuario(String nombreNuevo, String idNuevo, String descripcionNueva, String ubicacionNueva) {
+        this.nombre = nombreNuevo;
+        this.id = idNuevo;
+        this.descripcion = descripcionNueva;
+        this.ubicacion = ubicacionNueva;
         System.out.println("Ha sido creado Exitosamente");
     }
 
     @Override
-    public void mostrarInformacion() {
+    public  void mostrarInformacion() {
+        System.out.println("----------------------------------");
+        System.out.println("-----USUARIO------");
         System.out.println("ID: " + id);
         System.out.println("Nombre: " + nombre);
         System.out.println("Descripcion: " + descripcion);
         System.out.println("Ubicacion: " + ubicacion);
+        System.out.println("----------------------------------");
     }
 
     @Override
     public void modificarInformacion() {
         Scanner sc = new Scanner(System.in);
-        int i =0;
-        while(i==0){
+        int opcion =0;
+        while(opcion==0){
             System.out.println("Que deseas modificar de el usuario?");
             System.out.println("1. Cambiar nombre\n 2. Cambiar ID\n 3. Cambiar descripcion\n 4. Cambiar ubicacion\n Escoge uno de los numeros: \n");
-            int opcion= sc.nextInt();
+            int opcionNueva= sc.nextInt();
+            sc.nextLine();
+            opcion=opcionNueva;
             if(opcion==1){
                 System.out.println("Ingrese el nombre del usuario:");
-                String nombre = sc.nextLine();
+                String nombreNuevo = sc.nextLine();
+                this.nombre = nombreNuevo;
+
             }
             else if(opcion==2){
                 System.out.println("Ingrese el ID del usuario:");
-                String id = sc.nextLine();
+                String idNuevo = sc.nextLine();
+                this.id = idNuevo;
             }
             else if(opcion==3){
                 System.out.println("Ingrese el descripcion del usuario:");
-                String descripcion = sc.nextLine();
+                String descripcionNueva = sc.nextLine();
+                this.descripcion = descripcionNueva;
             }
-            else if(opcion==4){
+            else if(opcion==4){;
                 System.out.println("Ingrese el ubicacion del usuario:");
-                String ubicacion = sc.nextLine();
+                String ubicacionNueva = sc.nextLine();
+                this.ubicacion = ubicacionNueva;
             }
             else{
                 System.out.println("No es correcto ese opcion");
             }
-            System.out.println("Quieres seleccionar otra opcion:");
-            int i = sc.nextInt();
 
 
 
